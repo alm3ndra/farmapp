@@ -17,11 +17,11 @@
 
 + Se utilizaron los siguientes módulos y repositorios, los cuales pueden ser tomados de ejemplo de uso:
 
-++ CSV
-++ Flask
-++ Bootstrap (flask_bootsrap)
-++ Flask_Moment
-++ Flask_Script
++ CSV
++ Flask
++ Bootstrap (flask_bootsrap)
++ Flask_Moment
++ Flask_Script
 
  FLUJO
 =======
