@@ -1,0 +1,66 @@
+{% extends "t_ingreso.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+{{ super() }}
+<style>
+
+h2{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border: 1px solid gray;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+th{
+    background-color: black;
+    color: white;
+    height: 30px;
+    text-align: center;
+
+}
+
+td{
+    border: 1px solid gray;
+    text-align: center;
+    padding: 3px 1px;
+}
+
+
+</style>
+{% endblock %}
+
+{% block title %}ULTIMOS MOVIMIENTOS DE VENTA{% endblock %}
+
+{% block page_content %}
+<div>    
+    <h2>VENTAS RECIENTES</h2>
+</div>
+
+
+<table>
+    <tr>
+        <th>CODIGO</th>
+        <th>CLIENTE</th>
+        <th>PRODUCTO</th>
+        <th>CANTIDAD</th>
+        <th>PRECIO</th>
+    </tr>
+        {% for x in last_s %}
+    <tr>
+        <td>{{ x.codigo }}</td>
+        <td>{{ x.cliente }}</td>
+        <td>{{ x.producto }}</td>
+        <td>{{ x.cantidad }}</td>
+        <td>{{ x.precio }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+

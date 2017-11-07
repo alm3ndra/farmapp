@@ -1,0 +1,60 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+{{ super() }}
+
+{% endblock %}
+
+
+{% block navbar %}
+
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+             <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">F A R M A P P</a>
+            </div>
+                <ul class="nav navbar-nav navbar-right">
+                    
+                     <li class="drop<down">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OPCIONES<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="/ultimas">VENTAS RECIENTES</a></li>
+                        <li><a href="/prod_clientes">PRODUCTOS POR CLIENTE</li>
+                        <li><a href="/clientes_prod">CLIENTES POR PRODUCTOS</li>
+                        <li><a href="/prod_vendidos">PRODUCTOS MAS VENDIDOS</a></li>
+                        <li><a href="/mej_clientes">CLIENTES QUE MAS COMPRARON</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/logout">SALIR</a></li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{{ moment.lang('es') }}
+{% endblock %}

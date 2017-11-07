@@ -1,0 +1,94 @@
+{% extends "t_ingreso.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}POR PRODUCTOS{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style>
+
+h2{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+table {
+    margin-top: 20px;
+    font-family: Georgia, sans-serif;
+    border: 1px solid gray;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+th{
+    background-color: black;
+    color: white;
+    height: 30px;
+    text-align: center;
+
+}
+
+td{
+    border: 1px solid gray;
+    text-align: center;
+    padding: 3px 1px;
+}
+
+body{
+    padding-top: 100px;
+}
+
+
+.listado{
+    list-style-type: none;
+    color: darkmagenta;
+    overflow: auto;
+}
+
+.listado li{
+    float: left;
+    margin: 5px 10px 5px 0px;
+    background-color: lightblue;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.listado li a{
+    color: darkmagenta;
+}
+</style>
+{% endblock %}
+
+{% block page_content %}
+<div>    
+    {{ wtf.quick_form(form) }}
+    <p>{{ producto }}</p>
+    <u1 class="listado">
+     {% for x in productos %}
+         <li><a href="/clientes_prod/{{ x }}">{{ x }} | </a></li>
+     {% endfor %}
+    </u1>
+</div>
+
+<table>
+    <tr>
+        <th>CODIGO</th>
+        <th>PRODUCTO</th>
+        <th>CLIENTE</th>
+        <th>CANTIDAD</th>
+        <th>PRECIO</th>
+    </tr>
+        {% for x in listar %}
+    <tr>
+        <td>{{ x.codigo }}</td>
+        <td>{{ x.producto }}</td>
+        <td>{{ x.cliente }}</td>
+        <td>{{ x.cantidad }}</td>
+        <td>{{ x.precio }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
+

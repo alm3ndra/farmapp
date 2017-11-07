@@ -1,0 +1,83 @@
+{% extends "t_ingreso.html" %}
+
+{% block title %}PRODUCTOS MAS VENDIDOS{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style>
+
+h2{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+table {
+    font-family: Georgia, sans-serif;
+    border: 1px solid gray;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+th{
+    background-color: black;
+    color: white;
+    height: 30px;
+    text-align: center;
+
+}
+
+td{
+    border: 1px solid gray;
+    text-align: center;
+    padding: 3px 1px;
+}
+
+body{
+    padding-top: 100px;
+}
+
+
+.listado{
+    list-style-type: none;
+    color: darkmagenta;
+    overflow: auto;
+}
+
+.listado li{
+    float: left;
+    margin: 5px 10px 5px 0px;
+}
+
+.listado li a{
+    color: darkmagenta;
+}
+</style>
+{% endblock %}
+
+
+{% block page_content %}
+<div>    
+    <h2>PRODUCTOS MAS VENDIDOS</h2>
+</div>
+
+
+
+<table>
+    <tr>
+        <th>CODIGO</th>
+        <th>PRODUCTO</th>
+        <th>CANTIDAD</th>
+    </tr>
+        {% for result in produc %}
+            <tr>
+                <td>{{ result[1].codigo }}</td>
+                <td>{{ result[1].producto }}</td>
+                <td>{{ result[0] }}</td>
+            </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
+

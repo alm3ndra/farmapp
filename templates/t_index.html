@@ -1,0 +1,61 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+{{ super() }}
+<style>
+    h1, h2{
+        text-align: center;
+    }
+
+    body{
+        padding-top: 50px;
+    }
+
+    p{
+        text-align: center;
+    }
+
+</style>
+{% endblock %}
+
+
+{% block navbar %}
+<nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+             <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">F A R M A P P</a>
+            </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li> <a href="/ingresar">INGRESAR</a> </li>
+                   
+                </ul>
+            </div>
+        </nav>
+
+       
+
+{% endblock %}
+
+{% block content %}
+<div class="container princ">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{{ moment.lang('es') }}
+{% endblock %}
