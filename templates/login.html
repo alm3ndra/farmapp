@@ -1,0 +1,32 @@
+{% extends "t_index.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}FARMAPP{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style>
+    h1{
+        text-align: center;
+    }
+
+    p{
+        text-align: center;
+    }
+
+    input{
+    	width: 200px;
+    }
+
+    .princ{
+    	margin-top: 100px;
+    }
+
+</style>
+{% endblock %}
+
+{% block page_content %}
+<div>    
+    {{ wtf.quick_form(formulario) }}
+</div>
+{% endblock %}
